@@ -14,7 +14,8 @@ public class Ejemplo1 {
         //que se encuentra en la ruta del proyecto
 
         //Crear un string para almacenar la ruta del driver de chrome
-        String rutaDriver = "C:\\Users\\domin\\IdeaProjects\\Clase2Selenium\\src\\test\\resources\\drivers\\chromedriver.exe";
+        //String rutaDriver = "C:\\Users\\domin\\IdeaProjects\\Clase2Selenium\\src\\test\\resources\\drivers\\chromedriver.exe";
+        String rutaDriver = System.getProperty("user.dir")+"\\src\\test\\resources\\drivers\\chromedriver.exe";
 
         //configurar a traves de los property del sistema, la variable webdriver.chrome.driver
         System.setProperty("webdriver.chrome.driver",rutaDriver);
