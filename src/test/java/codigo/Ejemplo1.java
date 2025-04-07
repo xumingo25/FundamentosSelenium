@@ -1,6 +1,8 @@
 package codigo;
 
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By; //localizar elementos web
+import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver; //simular el browser
 import org.openqa.selenium.WebElement; //simular un elemento del sitio
 import org.openqa.selenium.chrome.ChromeDriver; //simular el driver de chrome
@@ -47,11 +49,16 @@ public class Ejemplo1 {
         //Un BY es una estrategia de busqueda (ID,LINKTEXT,CLASS,TAGNAME,XPATH,
 
         //Crear un objeto que simule el link / boton / textBox / dropdrown list
-        WebElement linkHazteCliente = driver.findElement(locatorLinkHazteCliente);
+        //WebElement linkHazteCliente = driver.findElement(locatorLinkHazteCliente);
 
-        //accion sobre el elemento web
-        linkHazteCliente.click();
+        //linkHazteCliente.click();
 
+        //This Element is inside single shadow DOM.
+        String cssSelectorForHost1 = "new-header";
+        Thread.sleep(1000);
+        SearchContext shadow = driver.findElement(By.cssSelector("new-header")).getShadowRoot();
+        Thread.sleep(1000);
+        shadow.findElement(locatorLinkHazteCliente).click();
 
         //driver.navigate().back();
 
