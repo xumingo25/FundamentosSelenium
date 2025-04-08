@@ -60,10 +60,32 @@ public class Ejemplo1 {
         Thread.sleep(1000);
         shadow.findElement(locatorLinkHazteCliente).click();
 
+        Thread.sleep(3000);
+
+        //TXT RUT (name="rut")
+        driver.findElement(By.name("rut")).sendKeys("123456789");
+
+        Thread.sleep(1000);
+
+        driver.findElement(By.xpath("//label[@for='nacionalidadChileno']")).click();
+
+        String resultadoEsperado = "El Rut ingresado no es válido";
+
+        String resultadoObtenido = driver.findElement(By.cssSelector("div[class='error-message'] span")).getText();
+
+        if(resultadoObtenido.equalsIgnoreCase(resultadoEsperado)){
+            System.out.println("Funciono!!!");
+        }else{
+            System.out.println("ocurrio un error validando los textos de salida.");
+            System.out.println("resultado esperado: "+ resultadoEsperado);
+            System.out.println("resultado obtenido: "+resultadoObtenido);
+        }
+
+
         //driver.navigate().back();
 
         //refrescar la pàgina web
-        //.sleep(2000);
+        Thread.sleep(2000);
         //Mensajes en la consola de java
         //.out.println("La url actual es: "+driver.getCurrentUrl());
 
@@ -73,7 +95,7 @@ public class Ejemplo1 {
         //Thread.sleep(2000);
 
         //cerrar el navegador
-        //driver.close();
+        driver.close();
 
 
 
