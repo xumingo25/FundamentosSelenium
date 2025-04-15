@@ -1,10 +1,8 @@
-package codigo;
+package codigo.unidad1;
 
-import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By; //localizar elementos web
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver; //simular el browser
-import org.openqa.selenium.WebElement; //simular un elemento del sitio
 import org.openqa.selenium.chrome.ChromeDriver; //simular el driver de chrome
 
 public class Ejemplo1 {
