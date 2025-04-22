@@ -23,7 +23,7 @@ public class DataDriven {
         //Instanciar un archivo
         FileInputStream file;
         try {
-            file = new FileInputStream("C:\\Users\\domin\\IdeaProjects\\Clase2Selenium\\src\\test\\resources\\data\\DataPruebas.xlsx");
+            file = new FileInputStream(System.getProperty("user.dir")+"\\src\\test\\resources\\data\\DataPruebas.xlsx");
         } catch (FileNotFoundException e) {
             System.out.println("Fallo el cargar el archivo...");
             throw new RuntimeException(e);
