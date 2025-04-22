@@ -33,7 +33,7 @@ public class TestCases {
         home.conexionDriver(browser,ruta,property);
         register = new RegisterPage(home.getDriver());
         home.prepararEsperas(Duration.ofSeconds(20));
-        home.cargarSitio("https://sitio.consorcio.cl/");
+        home.cargarSitio("https://sitio.consorcio.cl/"); //NO DEBERIAMOS DEJAR EN DURO PARAMETROS DE CONFIGURACIÒN
         home.maximizarBrowser();
     }
 
@@ -45,9 +45,9 @@ public class TestCases {
     @Test
     public void TC001_ErrorCreacionCta(){
         home.irHazteCliente();
-        register.ingresarRut("123456778");
+        register.ingresarRut("123456778"); //NO DEBERIAMOS PASAR DATA EN DURO
         register.seleccionarNacionalidadChilena();
-        Assertions.assertEquals("El Rut ingresado no es válido",register.obtenerMensajeError());
+        Assertions.assertEquals("El Rut ingresado no es válido",register.obtenerMensajeError()); //NO DEBERIAMOS PASAR DATA EN DURO
     }
 
 }
