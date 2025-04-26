@@ -23,7 +23,7 @@ public class DataDriven {
         //Instanciar un archivo
         FileInputStream file;
         try {
-            file = new FileInputStream(System.getProperty("user.dir")+"\\src\\test\\resources\\data\\DataPruebas.xlsx");
+            file = new FileInputStream(System.getProperty("user.dir")+PropertiesDriven.getProperty("rutaExcel"));
         } catch (FileNotFoundException e) {
             System.out.println("Fallo el cargar el archivo...");
             throw new RuntimeException(e);
@@ -44,7 +44,7 @@ public class DataDriven {
 
         //recorrer excell y obtener hoja con datos
         for(int i=0; i < sheets ; i++){
-            if(excel.getSheetName(i).equalsIgnoreCase("HojaData")){
+            if(excel.getSheetName(i).equalsIgnoreCase(PropertiesDriven.getProperty("hojaExcel"))){
                 //encontre la hoja con los datos
                 XSSFSheet hojaExcel = excel.getSheetAt(i);
 
@@ -60,7 +60,7 @@ public class DataDriven {
                 while(celda.hasNext()){
                     Cell celdaSeleccionada = celda.next();
 
-                    if(celdaSeleccionada.getStringCellValue().equalsIgnoreCase("TestCases")) {
+                    if(celdaSeleccionada.getStringCellValue().equalsIgnoreCase(PropertiesDriven.getProperty("tituloCPs"))) {
                         //Encontre la celda con el titulo de los casos de prueba
                         //Definir la columna con los test cases
                         columna = k;
